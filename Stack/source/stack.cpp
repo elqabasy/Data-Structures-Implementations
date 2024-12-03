@@ -3,11 +3,18 @@
 #include "constants.hpp"
 // Constructor
 template<class Type> 
-Stack<Type>::Stack(const bool& verbose):_head(nullptr), _verbose(verbose){
+Stack<Type>::Stack(){
     if(_verbose) printf("Stack(verbose=%s)\n", _verbose? "True" : "False");
+    
 }
 
 // methods
+template<class Type>
+Stack<Type>::Stack(const string& expr){
+    // for(auto x : expr){
+    //     push();
+    // }
+}
 
 // top
 template<class Type> 
@@ -101,6 +108,12 @@ string Stack<Type>::toString() const{
     }
     text += ")";
     return text;
+}
+
+template <class Type>
+bool Stack<Type>::isBalanced(const string &expr) {
+    
+    return false;
 }
 
 // Destructor

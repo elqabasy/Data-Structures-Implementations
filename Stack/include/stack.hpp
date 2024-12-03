@@ -5,19 +5,19 @@ using namespace std;
 
 
 template<class Type>
-class Stack
-{
+class Stack{
     private:
         struct Node{
             Node* next;
             Type value;
             Node(const Type& value, Node* next = nullptr) : next(next), value(value){}
         };
-        Node* _head;
-        bool _verbose;
+        Node* _head = nullptr;
+        bool _verbose = false;
     public:
         // Constructor
-        Stack(const bool& verbose = false);
+        Stack();
+        Stack(const string& expr);
 
         // methods
         Type top() const;
@@ -32,6 +32,8 @@ class Stack
 
         void display() const;
         string toString() const;
+
+        static bool isBalanced(const string& expr) ;
 
         // Destructor
         ~Stack();

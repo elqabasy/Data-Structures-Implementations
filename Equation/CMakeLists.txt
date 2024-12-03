@@ -2,8 +2,8 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Define global variables for the project and executable names
-set(PROJECT_NAME Stack)
-set(EXECUTABLE_NAME Stack)
+set(PROJECT_NAME EQUATION)
+set(EXECUTABLE_NAME EQUATION)
 
 # Set the project name and version
 project(${PROJECT_NAME} VERSION 1.0 LANGUAGES CXX)
@@ -11,9 +11,6 @@ project(${PROJECT_NAME} VERSION 1.0 LANGUAGES CXX)
 # Set the C++ standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-
-
-# set(CMAKE_PREFIX_PATH "C:\\tools\\vcpkg\\installed\\x64-windows\\share")
 
 
 # Define paths for source files and headers

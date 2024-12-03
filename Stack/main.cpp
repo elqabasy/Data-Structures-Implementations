@@ -4,11 +4,7 @@ using namespace std;
 
 
 int main(int argc, char const *argv[]){
-    Stack<int> stack;
-
-    stack.push(10);
-    stack.push(20);
-    stack.push(30);
-    
+    Stack<char> stack = Stack<char>("([()])");
+    stack.display();
     return EXIT_SUCCESS;
 }
