@@ -1,39 +1,27 @@
-# Minimum version of CMake
-cmake_minimum_required(VERSION 3.15)
+# # Minimum version of CMake
+# cmake_minimum_required(VERSION 3.15)
 
-# Project name and type
-project(StackLibrary LANGUAGES CXX)
+# # Project name and type
+# project(StackLibrary LANGUAGES CXX)
 
-message(STATUS "TEST")
+# # Set the output type to SHARED to build a DLL
+# add_library(StackLibrary SHARED
+#     source/Stack.cpp
+# )
 
-# Set the output type to SHARED to build a DLL
-add_library(StackLibrary SHARED
-    source/Stack.cpp
-)
+# # Specify the include directories for the library
+# target_include_directories(StackLibrary
+#     PUBLIC
+#     ${CMAKE_CURRENT_SOURCE_DIR}/include
+# )
 
-# add_executable(Stack main.cpp)
-
-
-
-target_include_directories(${PROJECT_NAME}
-    PRIVATE
-        # where the library itself will look for its internal headers
-        ${CMAKE_CURRENT_SOURCE_DIR}/src
-    PUBLIC
-        # where top-level project will look for the library's public headers
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-        # where external projects will look for the library's public headers
-        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
-)
+# # Export macro for shared library
+# target_compile_definitions(StackLibrary
+#     PRIVATE STACKLIB_EXPORTS
+# )
 
 
-# Export macro for shared library
-target_compile_definitions(StackLibrary
-    PRIVATE STACKLIB_EXPORTS
-)
-
-
-
+#############################################
 
 
 # cmake_minimum_required(VERSION 3.10)
@@ -109,36 +97,45 @@ target_compile_definitions(StackLibrary
 # )
 
 
-# # Minimum required version of CMake
-# cmake_minimum_required(VERSION 3.10)
+#############################################
+# Minimum required version of CMake
+cmake_minimum_required(VERSION 3.10)
 
-# # Define global variables for the project and executable names
-# set(PROJECT_NAME Stack)
-# set(EXECUTABLE_NAME Stack)
+# Define global variables for the project and executable names
+set(PROJECT_NAME Queue)
+set(EXE_NAME Queue)
 
-# # Set the project name and version
-# project(${PROJECT_NAME} VERSION 1.0 LANGUAGES CXX)
+# Set the project name and version
+project(${PROJECT_NAME} VERSION 1.0 LANGUAGES CXX)
 
-# # Set the C++ standard
-# set(CMAKE_CXX_STANDARD 17)
-# set(CMAKE_CXX_STANDARD_REQUIRED True)
-
-
-# # set(CMAKE_PREFIX_PATH "C:\\tools\\vcpkg\\installed\\x64-windows\\share")
+# Set the C++ standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 
-# # Define paths for source files and headers
-# set(SOURCE_DIR ${CMAKE_SOURCE_DIR}/source)
-# set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
+set(CMAKE_PREFIX_PATH "C:\\tools\\vcpkg\\installed\\x64-windows\\share")
 
-# # Include directories
-# include_directories(${INCLUDE_DIR})
 
-# # Collect source files
-# file(GLOB SOURCES "${SOURCE_DIR}/*.cpp")
+# Define paths for source files and headers
+set(SOURCE_DIR ${CMAKE_SOURCE_DIR}/source)
+set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 
-# # Add the executable
-# add_executable(${EXECUTABLE_NAME} main.cpp)
+# Include directories
+include_directories(${INCLUDE_DIR})
 
-# # Add include directories
-# target_include_directories(${EXECUTABLE_NAME} PRIVATE ${INCLUDE_DIR})
+# Collect source files
+file(GLOB SOURCES "${SOURCE_DIR}/*.cpp")
+
+# Add the executable
+add_executable(${EXE_NAME} main.cpp)
+
+# Add include directories
+target_include_directories(${EXE_NAME} PRIVATE ${INCLUDE_DIR})
+
+
+# find_package(fmt CONFIG REQUIRED)
+# target_link_libraries(${EXE_NAME} PRIVATE fmt::fmt)
+
+# Or use the header-only version
+find_package(fmt CONFIG REQUIRED)
+target_link_libraries(${EXE_NAME} PRIVATE fmt::fmt-header-only)

@@ -19,6 +19,10 @@ class Stack{
         Stack();
         Stack(const string& expr);
 
+
+        // operators
+        Stack<Type> operator=(Stack<Type> stack);
+
         // methods
         Type top() const;
         Stack pop();
@@ -38,4 +42,4 @@ class Stack{
         // Destructor
         ~Stack();
 };
-#include "../source/stack.cpp"
+// #include "../source/stack.cpp"

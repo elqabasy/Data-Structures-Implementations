@@ -16,6 +16,13 @@ Stack<Type>::Stack(const string& expr){
     // }
 }
 
+template <class Type>
+Stack<Type> Stack<Type>::operator=(Stack<Type> stack){
+    clear();
+    // this
+    return *this;
+}
+
 // top
 template<class Type> 
 Type Stack<Type>::top() const{
@@ -88,6 +95,7 @@ Stack<Type> Stack<Type>::reverse(){
     if(_verbose) cout << TAB << "reverse(): " << toString() << endl;
     return stack;
 }
+
 
 // display
 template<class Type> 
